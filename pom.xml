@@ -30,13 +30,20 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<!-- MySQL Web Dependency -->
+		<!-- MySQL JDBC Driver -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.38</version>
 		</dependency>
 
+		<!-- JSTL -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

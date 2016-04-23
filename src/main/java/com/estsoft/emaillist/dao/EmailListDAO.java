@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.estsoft.db.DBConnection;
@@ -17,15 +19,19 @@ import com.estsoft.emaillist.vo.EmailListVO;
 @Repository
 public class EmailListDAO {
 	
-	private DBConnection dbConnection;
+	@Autowired
+	//같은 interface를 구현한 클래스의 빈이 컨테이너에 생성되는 경우. (별로 좋은 방식은 아님)
+	// --> 이렇게 코드에 쓰지말고, applicationContext에 bean을 설정하면 된다.
+	//@Qualifier("mySQLWebDBConnection")	
+	private DBConnection dbConnection;		// DBConnection Interface를 구현한 객체를 묶어달라 얘기하는 것(container에게)
 	
-	public EmailListDAO(){
-		this.dbConnection = new MySQLWebDBConnection();
-	}
-	
-	public EmailListDAO(DBConnection dbConnection){
-		this.dbConnection = dbConnection;
-	}
+//	public EmailListDAO(){
+//		this.dbConnection = new MySQLWebDBConnection();
+//	}
+//	
+//	public EmailListDAO(DBConnection dbConnection){
+//		this.dbConnection = dbConnection;
+//	}
 	
 	public void insert(EmailListVO vo){
 		Connection conn = null;

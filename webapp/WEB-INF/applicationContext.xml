@@ -26,6 +26,10 @@
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Component" />			
 	</context:component-scan>
-
+	
+	<!-- Business관련된 component이기 때문에 dispatcher-servlet에서 작성 X -->
+	<!-- 사용할 부분만 사용하고, 나머진 주석처리해서 사용하면 됨 -->
+	<bean id="MySQLWebDBConnection" class="com.estsoft.db.MySQLWebDBConnection"></bean>
+	<!-- <bean id="mariaDBConnection" class="com.estsoft.db.MariaDBConnection"></bean> -->
 
 </beans> 
